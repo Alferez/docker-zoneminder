@@ -55,9 +55,11 @@ RUN echo "deb-src http://deb-multimedia.org jessie main non-free" >> /etc/apt/so
 RUN echo "" >> /etc/apt/sources.list
 WORKDIR /tmp
 RUN apt-get install -y wget
-RUN wget https://www.deb-multimedia.org/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2015.6.1_all.deb
-RUN dpkg -i deb-multimedia-keyring_2015.6.1_all.deb
-RUN rm deb-multimedia-keyring_2015.6.1_all.deb
+
+RUN wget https://www.deb-multimedia.org/pool/main/d/deb-multimedia-keyring/deb-multimedia-keyring_2016.3.7_all.deb
+RUN dpkg -i deb-multimedia-keyring_2016.3.7_all.deb
+RUN rm deb-multimedia-keyring_2016.3.7_all.deb
+
 
 RUN apt-get update -y --fix-missing
 RUN apt-get install -y -q build-essential git-core checkinstall yasm texi2html libvorbis-dev libx11-dev libvpx-dev libxfixes-dev zlib1g-dev pkg-config libx264-dev libfaac-dev libmp3lame-dev netcat
